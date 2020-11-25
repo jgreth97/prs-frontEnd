@@ -1,0 +1,65 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+    <a routerLink="/about">About</a> |
+    <a routerLink="/user">Users</a> |   
+    <a routerLink="/vendor">Vendors</a> |   
+    <a routerLink="/product">Products</a> |   
+    <a routerLink="/request">Requests</a> |
+    <a routerLink="/review">Review</a>   
+</nav>
+<div *ngIf="request" class="component">
+    <div>
+    <section class="heading">
+        <span class="page-title font-weight-bold font-italic">{{title}}</span>
+        <span>&nbsp;<a routerLink="/request">Return to List</a></span>
+
+        <div><span class="h3">Request: {{request.name}} Details</span></div> 
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">ID</th>
+                    <td><input [(ngModel)]="request.id" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">User</th>
+                    <td><input [(ngModel)]="request.user.userName" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Description</th>
+                    <td><input [(ngModel)]="request.description" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Justification</th>
+                    <td><input [(ngModel)]="request.justification" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Date Needed</th>
+                    <td><input [(ngModel)]="request.dateNeeded" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Delivery Mode</th>
+                    <td><input [(ngModel)]="request.deliveryMode" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Status</th>
+                    <td><input [(ngModel)]="request.status" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Total</th>
+                    <td><input [(ngModel)]="request.total" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Date Submitted</th>
+                    <td><input [(ngModel)]="request.submittedDate" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Reason For Rejection</th>
+                    <td><input [(ngModel)]="request.reasonForRejection" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="remove()">Delete Request</button>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>

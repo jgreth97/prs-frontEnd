@@ -1,0 +1,61 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="/review">Review</a>   
+</nav>
+<div *ngIf="user" class="component">
+    <div>
+    <section class="heading">
+        <span class="page-title font-weight-bold font-italic">{{title}}</span>
+        <span>&nbsp;<a routerLink="/user">Return to List</a></span>
+
+        <div><span class="h3">User Details for {{user.userName}}</span></div> 
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">ID</th>
+                    <td><input [(ngModel)]="user.id" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Username</th>
+                    <td><input [(ngModel)]="user.userName" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Password</th>
+                    <td><input [(ngModel)]="user.password" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">First Name</th>
+                    <td><input [(ngModel)]="user.firstName" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Last Name</th>
+                    <td><input [(ngModel)]="user.lastName" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">E-mail</th>
+                    <td><input [(ngModel)]="user.email" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Phone</th>
+                    <td><input [(ngModel)]="user.phoneNumber" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Admin?</th>
+                    <td><input [(ngModel)]="user.admin" type="checkbox" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Reviewer?</th>
+                    <td><input [(ngModel)]="user.reviewer" type="checkbox" disabled></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="remove()">Delete User</button>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>

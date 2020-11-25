@@ -1,0 +1,8 @@
+<nav>
+    <ul>
+        
+        <li [menu]="mnu" *ngFor= "let mnu of menus">
+        <a routerLink="{{menu.route}}">{{menu.display}}</a>
+        </li>
+    </ul>  
+</nav> 

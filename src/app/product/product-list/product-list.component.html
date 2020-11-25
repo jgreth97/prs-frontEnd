@@ -1,0 +1,44 @@
+<nav>
+    <ul>
+        <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="/review">Review</a> 
+    </ul>   
+</nav>
+ <div *ngIf='products'>
+    <H3>List of Products</H3>
+            <span>&nbsp;
+                <a routerLink="/product/create">[Create New Product]</a>
+            </span>
+    <table class= "table table-sm table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vendor</th>
+            <th>Part Number</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th>Photo Path</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor= "let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.vendor.name}}</td>
+            <td>{{product.partNumber}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.unit}}</td>
+            <td>{{product.photoPath}}</td>
+            <td><a routerLink="/product/edit/{{product.id}}">Edit</a></td>
+            <td><a routerLink= "/product/detail/{{product.id}}">Detail</a></td> 
+        </tr>
+      </tbody>      
+    </table>
+</div>

@@ -1,0 +1,9 @@
+ul{
+    padding: 0;
+}
+nav{
+ background-color: yellow;
+}
+li{
+    display: inline;
+}

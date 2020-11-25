@@ -1,0 +1,41 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="request/review">Review</a>   
+</nav>
+<div><span class="h3">Create a New Line Item</span></div>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Request ID</th>
+            <td><input [(ngModel)]="requestline.request.id" type="text" disabled></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">Product</th>
+            <td>
+                <select [(ngModel)]="requestline.product" [compareWith]="compare" (click)="changes()">
+                    <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Quantity</th>
+            <td><input [(ngModel)]="requestline.quantity" type="text" (click)="changes()"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button"  class="btn btn-primary" (click)="save()">{{saved}}</button>
+            </td>
+            <td>
+                <button type="button"  class="btn btn-danger" routerLink="/requests/line/{{requestline.request.id}}">Discard Changes</button>
+            </td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>

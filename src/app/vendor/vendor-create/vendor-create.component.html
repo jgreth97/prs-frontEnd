@@ -1,0 +1,55 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="request/review">Review</a>   
+</nav>
+<div><span class="h3">Vendor</span></div>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">ID</th>
+            <td><input [(ngModel)]="vendor.id" type="text" disabled></td>
+        </tr>
+        <tr>
+            <th scope="row">Code</th>
+            <td><input [(ngModel)]="vendor.code" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">Name</th>
+            <td><input [(ngModel)]="vendor.name" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">Address</th>
+            <td><input [(ngModel)]="vendor.address" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">City</th>
+            <td><input [(ngModel)]="vendor.city" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">State</th>
+            <td><input [(ngModel)]="vendor.state" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">Zip Code</th>
+            <td><input [(ngModel)]="vendor.zip" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">Phone Number</th>
+            <td><input [(ngModel)]="vendor.phoneNumber" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <th scope="row">Email</th>
+            <td><input [(ngModel)]="vendor.email" type="text" (click)="saves()"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="save()">{{saved}}</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,79 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="/review">Review</a>   
+</nav>
+<h3>Requests</h3>
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">
+        </th>
+        <th scope="col">
+            ID
+        </th>
+        <th scope="col">
+            User
+        </th>
+        <th scope="col">
+            Description
+        </th>
+        <th scope="col">
+            Total
+        </th>
+        <th scope="col">
+            Status
+        </th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th></th>
+            <td>{{request.id}}</td>
+            <td>{{request.user.userName}}</td>
+            <td>{{request.description}}</td>
+            <td>${{request.total}}</td>
+            <td>{{request.status}}</td>
+            <td><button type="button" class="btn btn-primary" (click)="submit()" 
+                *ngIf='request.status != "Approved"'ng-disabled="request.total == 0">
+                Submit For Review</button></td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <span class="h3">
+        Line Items
+    </span>
+    <span>
+        <button type="button" class="btn btn-primary" routerLink="/request/line/create/{{request.id}}" *ngIf='request.status != "Approved"'>Add</button>
+    </span>
+</div>
+    
+<table  *ngIf= lines class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+            <th scop="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let line of lines">
+            <th></th>
+            <td>{{line.product.name}}</td>
+            <td>{{line.quantity}}</td>
+            <td>${{line.quantity*line.product.price}}</td>
+            <td *ngIf='request.status != "Approved"'>
+                <a routerLink="/request/line/edit/{{line.id}}">Edit</a> |
+                <a id="deleteLink" (click)="deleteLine(line)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

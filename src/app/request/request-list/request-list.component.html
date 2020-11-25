@@ -1,0 +1,47 @@
+<nav>
+    <ul>
+        <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="/review">Review</a>  
+    </ul>   
+</nav>
+ <div *ngIf='requests'>
+    <H3>List of Requests</H3>
+            <span>&nbsp;
+                <a routerLink="/request/create">[Create New Request]</a>
+            </span>
+    <table class= "table table-sm table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th> 
+            <th>Description</th>
+            <th>Justification</th>
+            <th>Delievery Mode</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Submitted Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor= "let request of requests">
+            <td>{{request.id}}</td>
+            <td>{{request.user.userName}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.justification}}</td>
+            <td>{{request.deliveryMode}}</td>
+            <td>{{request.status}}</td>
+            <td>{{request.total}}</td>
+            <td>{{request.submittedDate}}</td>
+            <td><a routerLink="/request/edit/{{request.id}}">Edit</a></td>
+            <td><a routerLink= "/request/detail/{{request.id}}">Detail</a></td> 
+            <td><a routerLink= "/request/line/{{request.id}}">Line</a></td> 
+        </tr>
+      </tbody>      
+    </table>
+</div>

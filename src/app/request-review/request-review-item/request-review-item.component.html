@@ -1,0 +1,74 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="/review">Review</a>   
+</nav> 
+<div>
+    <span class="h3" *ngIf="request.user.userName != null">Request Lines for {{request.user.userName}}'s Request from {{request.submittedDate}}</span>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Description</th>
+            <th>Justification</th>
+            <th>Total</th>
+            <th>Delivery Mode</th>
+            <th>Date Needed</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{request.id}}</td>
+            <td>{{request.user.userName}}</td>
+            <td>{{request.description}}</td>
+            <td>{{request.justification}}</td>
+            <td>{{request.total}}</td>
+            <td>{{request.deliveryMode}}</td>
+            <td>{{request.dateNeeded}}</td>
+            <td>{{request.status}}</td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <span class="h3">Line Items</span>
+</div>
+    
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let li of lines">
+            <td>{{li.product.name}}</td>
+            <td>{{li.quantity}}</td>
+            <td>${{li.quantity*li.product.price}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th scope="col">
+                <input type="text" [(ngModel)]="request.reasonForRejection"  size="35" placeholder="Reason for Rejection">
+                <span>
+                    <button type="button" class="btn btn-danger" (click)="rejectReq()">Reject</button>
+                </span>
+            </th>
+            <th scope="col">
+                <button type="button" class="btn btn-primary" (click)="approveReq()">Approve</button>
+            </th>
+        </tr>
+    </thead>
+</table>

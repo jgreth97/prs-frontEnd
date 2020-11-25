@@ -1,0 +1,21 @@
+ul{
+    padding: 0;
+}
+nav{
+ background-color: yellow;
+}
+li{
+    display: inline;
+}
+a{
+    color: black;
+    text-decoration: none;
+    padding: 0 50px;
+}
+a:hover{
+background-color: black;
+color: white;
+}
+h6{
+    font-size: 3rem;
+}

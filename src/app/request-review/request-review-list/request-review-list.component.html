@@ -1,0 +1,40 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="/review">Review</a>   
+</nav>
+<div>
+    <span class="h3">Requests in Review</span>
+</div>
+<table class="table table-sm tbale striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>User</th>
+            <th>Description</th>
+            <th>Justification</th>
+            <th>Total</th>
+            <th>Date Submitted</th>
+            <th>Deadline</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let req of requests">
+            <th>{{req.id}}</th>
+            <td>{{req.user.userName}}</td>
+            <td>{{req.description}}</td>
+            <td>{{req.justification}}</td>
+            <td>{{req.total}}</td>
+            <td>{{req.submittedDate}}</td>
+            <td>{{req.dateNeeded}}</td>
+            <td>
+                <a routerLink="/request/review/{{req.id}}">Review</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,61 @@
+<nav>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="request/review">Review</a>   
+</nav>
+<div *ngIf="vendor" class="component">
+    <div>
+    <section class="heading">
+        <span class="page-title font-weight-bold font-italic">{{title}}</span>
+        <span>&nbsp;<a routerLink="/vendor">Return to List</a></span>
+
+        <div><span class="h3">Vendor: {{vendor.name}}'s Details</span></div> 
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="row">ID</th>
+                    <td><input [(ngModel)]="vendor.id" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Code</th>
+                    <td><input [(ngModel)]="vendor.code" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Name</th>
+                    <td><input [(ngModel)]="vendor.name" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Address</th>
+                    <td><input [(ngModel)]="vendor.address" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">City</th>
+                    <td><input [(ngModel)]="vendor.city" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">State</th>
+                    <td><input [(ngModel)]="vendor.state" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Zip Code</th>
+                    <td><input [(ngModel)]="vendor.zip" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Phone Number</th>
+                    <td><input [(ngModel)]="vendor.phoneNumber" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td><input [(ngModel)]="vendor.email" type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)="remove()">Delete User</button>
+                    </td> 
+                </tr>
+            </tbody>
+        </table>

@@ -1,0 +1,13 @@
+ul{
+    padding: 0;
+}
+nav{
+ background-color: yellow;
+}
+li{
+    display: inline;
+}
+
+h6{
+    font-size: 3rem;
+}

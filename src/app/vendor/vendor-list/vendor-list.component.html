@@ -1,0 +1,48 @@
+<nav>
+    <ul>
+    <a routerLink="/home">Home</a> |
+        <a routerLink="/about">About</a> |
+        <a routerLink="/user">Users</a> |   
+        <a routerLink="/vendor">Vendors</a> |   
+        <a routerLink="/product">Products</a> |   
+        <a routerLink="/request">Requests</a> |
+        <a routerLink="request/review">Review</a> 
+     </ul>     
+</nav>
+ <div *ngIf='vendors'>
+    <H3>List of Vendors</H3>
+            <span>&nbsp;
+                <a routerLink="/vendor/create">[Create New Vendor]</a>
+            </span>
+    <table class= "table table-sm table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor= "let vendor of vendors">
+            <td>{{vendor.id}}</td>
+            <td>{{vendor.code}}</td>
+            <td>{{vendor.name}}</td>
+            <td>{{vendor.address}}</td>
+            <td>{{vendor.city}}</td>
+            <td>{{vendor.state}}</td>
+            <td>{{vendor.zip}}</td>
+            <td>{{vendor.phoneNumber}}</td>
+            <td>{{vendor.email}}</td>
+            <td><a routerLink="/vendor/edit/{{vendor.id}}">Edit</a></td>
+            <td><a routerLink= "/vendor/detail/{{vendor.id}}">Detail</a></td> 
+        </tr>
+      </tbody>      
+    </table>
+</div>
